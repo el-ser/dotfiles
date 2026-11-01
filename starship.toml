@@ -1,0 +1,42 @@
+# yellow500 = "#b38600"
+
+format = '''
+[┌──────>](bold fg:#ffbf00) $time$directory$nix_shell
+[│](bold fg:#ffbf00)$all'''
+
+[character]
+format = '$symbol '
+success_symbol = '[└─>](bold fg:#ffbf00)'
+error_symbol = '[└─>](bold fg:#dc312e)'
+
+[directory]
+truncation_length = 3
+truncate_to_repo = false
+format = '📁 [$path]($style)[$read_only]($read_only_style) '
+
+[docker_context]
+symbol = '🐳'
+format = '➜ [$symbol $context]($style) '
+
+[gcloud]
+symbol = '☁️'
+format = '➜ [$symbol $account(@$domain)(\($region\))]($style) '
+
+[golang]
+symbol = '🐹'
+format = '➜ [$symbol ($version )]($style) '
+
+[git_branch]
+format = '➜ [$symbol$branch(:$remote_branch)](fg:#ffbf00) '
+
+[nix_shell]
+symbol = '❄️'
+format = '➜ [$symbol $state $name]($style) '
+
+[nodejs]
+symbol = ''
+format = '➜ [$symbol ($version)]($style) '
+
+[time]
+disabled = true
+use_12hr = true

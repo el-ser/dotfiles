@@ -1,0 +1,75 @@
+/* ============================================================
+   Vivaldi 7.5+ - Dark colors for the built-in tab stack colors
+   Pick a color as usual (right-click stack > Edit Tab Stack);
+   this file swaps Vivaldi's palette for darker versions.
+
+   Install: Settings > Appearance > Custom UI Modifications,
+   select the folder holding this file, then restart Vivaldi.
+   ============================================================ */
+
+:root {
+  --darkStackFg: #eef0f3; /* text on colored stacks */
+}
+
+/* 1. Grey */
+:root #browser .color1 {
+  --stackColorBg: #2a2c30 !important;
+  --stackColorBgAlpha: rgba(42, 44, 48, var(--stackBgAlpha)) !important;
+  --stackColorFg: var(--darkStackFg) !important;
+}
+
+/* 2. Blue */
+:root #browser .color2 {
+  --stackColorBg: #142640 !important;
+  --stackColorBgAlpha: rgba(20, 38, 64, var(--stackBgAlpha)) !important;
+  --stackColorFg: var(--darkStackFg) !important;
+}
+
+/* 3. Red */
+:root #browser .color3 {
+  --stackColorBg: #431515 !important;
+  --stackColorBgAlpha: rgba(67, 21, 21, var(--stackBgAlpha)) !important;
+  --stackColorFg: var(--darkStackFg) !important;
+}
+
+/* 4. Yellow */
+:root #browser .color4 {
+  --stackColorBg: #40330c !important;
+  --stackColorBgAlpha: rgba(64, 51, 12, var(--stackBgAlpha)) !important;
+  --stackColorFg: var(--darkStackFg) !important;
+}
+
+/* 5. Green */
+:root #browser .color5 {
+  --stackColorBg: #15361f !important;
+  --stackColorBgAlpha: rgba(21, 54, 31, var(--stackBgAlpha)) !important;
+  --stackColorFg: var(--darkStackFg) !important;
+}
+
+/* 6. Pink */
+:root #browser .color6 {
+  --stackColorBg: #42162f !important;
+  --stackColorBgAlpha: rgba(66, 22, 47, var(--stackBgAlpha)) !important;
+  --stackColorFg: var(--darkStackFg) !important;
+}
+
+/* 7. Purple */
+:root #browser .color7 {
+  --stackColorBg: #2b1a49 !important;
+  --stackColorBgAlpha: rgba(43, 26, 73, var(--stackBgAlpha)) !important;
+  --stackColorFg: var(--darkStackFg) !important;
+}
+
+/* 8. Cyan */
+:root #browser .color8 {
+  --stackColorBg: #0f363c !important;
+  --stackColorBgAlpha: rgba(15, 54, 60, var(--stackBgAlpha)) !important;
+  --stackColorFg: var(--darkStackFg) !important;
+}
+
+/* 9. Orange */
+:root #browser .color9 {
+  --stackColorBg: #45230e !important;
+  --stackColorBgAlpha: rgba(69, 35, 14, var(--stackBgAlpha)) !important;
+  --stackColorFg: var(--darkStackFg) !important;
+}
