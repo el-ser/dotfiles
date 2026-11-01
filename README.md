@@ -1,6 +1,6 @@
 # .dotfiles
  
-My macOS setup, managed with [nix-darwin](https://github.com/nix-darwin/nix-darwin). One command installs my apps, CLI tools, fonts, and macOS settings on a new Mac.
+My macOS setup, managed with [nix-darwin](https://github.com/nix-darwin/nix-darwin) and [Lix](https://lix.systems). One command installs my apps, CLI tools, fonts, and macOS settings on a new Mac.
  
 ```
 .dotfiles/
@@ -27,18 +27,18 @@ Provides `git`, which you need to clone this repo (Homebrew needs it too).
 xcode-select --install
 ```
  
-### 2. Install Determinate Nix
+### 2. Install Lix
  
-This config sets `nix.enable = false`, which means Determinate Nix manages Nix itself.
+Lix is the Nix implementation this config uses. After the first switch, nix-darwin takes over managing it (`nix.package = pkgs.lix` in `flake.nix`).
  
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+curl -sSf -L https://install.lix.systems/lix | sh -s -- install
 ```
  
 Open a new terminal, then check that it worked:
  
 ```bash
-nix --version   # should mention "Determinate Nix"
+nix --version   # should mention "Lix"
 ```
  
 ### 3. Clone this repo
@@ -95,11 +95,6 @@ These are things Nix doesn't handle:
 - [ ] Run `gh auth login`
 - [ ] Set Raycast's hotkey to ⌘Space (Spotlight is moved to ⌥Space)
 - [ ] Give AeroSpace accessibility access in System Settings → Privacy & Security → Accessibility
-- [ ] Optional, for devenv: make your user trusted by Nix, then restart the Mac
-```bash
-  echo "trusted-users = root $(whoami)" | sudo tee -a /etc/nix/nix.custom.conf
-```
- 
 ---
  
 ## Everyday use
@@ -123,11 +118,12 @@ After `nix flake update`, commit the new `flake.lock`.
  
 **`Unexpected files in /etc, aborting activation`**
  
-The Nix installer edited shell files that nix-darwin wants to manage. Rename each file listed in the error, then run step 5 again:
+The Lix installer created files that nix-darwin wants to manage. Rename each file listed in the error, then run step 5 again:
  
 ```bash
 sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
 sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin
+sudo mv /etc/nix/nix.conf /etc/nix/nix.conf.before-nix-darwin
 ```
  
 **Error about the `nixbld` group ID**
@@ -152,8 +148,8 @@ Remove nix-darwin:
 sudo nix --extra-experimental-features "nix-command flakes" run nix-darwin#darwin-uninstaller
 ```
  
-Remove Nix:
+Remove Lix:
  
 ```bash
-/nix/nix-installer uninstall
+/nix/lix-installer uninstall
 ```
