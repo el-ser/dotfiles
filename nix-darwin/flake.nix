@@ -201,8 +201,11 @@
           # The platform the configuration will be used on.
           nixpkgs.hostPlatform = "aarch64-darwin";
 
-          # Disable nix-darwin handling the nix pkg version
-          nix.enable = false;
+          nix.package = pkgs.lix;
+          nix.settings = {
+            experimental-features = "nix-command flakes";
+            trusted-users = [ "root" username ];
+          };
         };
     in
     {
