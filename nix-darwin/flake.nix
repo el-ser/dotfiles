@@ -109,8 +109,8 @@
             onActivation.upgrade = false;
           };
 
-          # ids.gids.nixbld = 30000; tells nix-darwin "the GID of the nixbld group on this system is 30000, please don't complain about it." It's a configuration value that the activation check compares against the actual GID of the nixbld group on your Mac.
-          ids.gids.nixbld = 30000;
+          # ids.gids.nixbld = 350; tells nix-darwin "the GID of the nixbld group on this system is 30000, please don't complain about it." It's a configuration value that the activation check compares against the actual GID of the nixbld group on your Mac.
+          ids.gids.nixbld = 350;
 
           power.sleep.display = "never";
           power.sleep.computer = "never";
