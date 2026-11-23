@@ -119,15 +119,18 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-a = 'workspace A'
+alt-b = 'workspace B'
 alt-c = 'workspace C'
 alt-d = 'workspace D'
 alt-g = 'workspace G'
+alt-m = 'workspace M'
 alt-n = 'workspace N'
 alt-p = 'workspace P'
 alt-q = 'workspace Q'
 alt-s = 'workspace S'
 alt-t = 'workspace T'
 alt-w = 'workspace W'
+alt-x = 'workspace X'
 alt-z = 'workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -141,14 +144,18 @@ alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 alt-shift-a = ['move-node-to-workspace A', 'workspace A']
+alt-shift-b = ['move-node-to-workspace B', 'workspace B']
 alt-shift-c = ['move-node-to-workspace C', 'workspace C']
 alt-shift-d = ['move-node-to-workspace D', 'workspace D']
 alt-shift-g = ['move-node-to-workspace G', 'workspace G']
+alt-shift-m = ['move-node-to-workspace M', 'workspace M']
 alt-shift-n = ['move-node-to-workspace N', 'workspace N']
 alt-shift-p = ['move-node-to-workspace P', 'workspace P']
+alt-shift-q = ['move-node-to-workspace Q', 'workspace Q']
 alt-shift-s = ['move-node-to-workspace S', 'workspace S']
 alt-shift-t = ['move-node-to-workspace T', 'workspace T']
 alt-shift-w = ['move-node-to-workspace W', 'workspace W']
+alt-shift-x = ['move-node-to-workspace X', 'workspace X']
 alt-shift-z = ['move-node-to-workspace Z', 'workspace Z']
 alt-shift-f = 'fullscreen'
 
@@ -180,74 +187,107 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
+# ============================================================
+# App → workspace rules
+# When an app opens a window, move it to its workspace.
+# Grouped by workspace, in the same order as the alt-<letter> bindings above,
+# except the X fallback, which must stay at the very bottom.
+# Find an app's id with: aerospace list-apps
+# ============================================================
+
+# ---------- B: Browsers ----------
 [[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = "move-node-to-workspace D"
+if.app-id = 'company.thebrowser.Browser' # Arc
+run = "move-node-to-workspace B"
 
 [[on-window-detected]]
-if.app-id = 'com.facebook.archon.developerID'
-run = "move-node-to-workspace D"
+if.app-id = 'com.vivaldi.Vivaldi' # Vivaldi
+run = "move-node-to-workspace B"
 
 [[on-window-detected]]
-if.app-id = 'com.viber.osx'
-run = "move-node-to-workspace D"
+if.app-id = 'com.apple.Safari'   # Safari
+run = "move-node-to-workspace B"
 
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
-run = "move-node-to-workspace A"
+if.app-id = 'com.apple.Safari'   # Brave
+run = "move-node-to-workspace B"
 
 [[on-window-detected]]
-if.app-id = 'com.vivaldi.Vivaldi'
-run = "move-node-to-workspace A"
+if.app-id = 'com.brave.Browser'  # Brave
+run = "move-node-to-workspace B"
 
+# ---------- C: Chat ----------
 [[on-window-detected]]
-if.app-id = 'net.kovidgoyal.kitty'
-run = "move-node-to-workspace T"
-
-[[on-window-detected]]
-if.app-id = 'at.eggerapps.Postico'
-run = "move-node-to-workspace P"
-
-[[on-window-detected]]
-if.app-id = 'com.spotify.client'
-run = "move-node-to-workspace S"
-
-[[on-window-detected]]
-if.app-id = 'notion.id'
-run = "move-node-to-workspace N"
-
-[[on-window-detected]]
-if.app-id = 'com.cron.electron'
+if.app-id = 'com.tinyspeck.slackmacgap' # Slack
 run = "move-node-to-workspace C"
 
 [[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = "move-node-to-workspace Q"
+if.app-id = 'com.hnc.Discord'    # Discord
+run = "move-node-to-workspace C"
 
 [[on-window-detected]]
-if.app-id = 'com.1password.1password'
-run = "move-node-to-workspace W"
+if.app-id = 'com.viber.osx'      # Viber
+run = "move-node-to-workspace C"
+
+# ---------- D: Calendar ----------
+[[on-window-detected]]
+if.app-id = 'com.cron.electron'  # Notion Calendar (formerly Cron)
+run = "move-node-to-workspace D"
+
+# ---------- G: AI ----------
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop' # Claude
+run = "move-node-to-workspace G"
 
 [[on-window-detected]]
-if.app-id = 'com.bitwarden.desktop'
-run = "move-node-to-workspace W"
+if.app-id = 'com.openai.codex'   # Codex
+run = "move-node-to-workspace G"
 
+# ---------- M: Music ----------
 [[on-window-detected]]
-if.app-id = 'us.zoom.xos'
-run = "move-node-to-workspace Z"
+if.app-id = 'com.spotify.client' # Spotify
+run = "move-node-to-workspace M"
 
+# ---------- N: Notes ----------
 [[on-window-detected]]
-if.app-id = 'md.obsidian'
+if.app-id = 'notion.id'          # Notion
 run = "move-node-to-workspace N"
 
 [[on-window-detected]]
-if.app-id = 'com.anthropic.claudefordesktop'
-run = "move-node-to-workspace G"
+if.app-id = 'md.obsidian'        # Obsidian
+run = "move-node-to-workspace N"
+
+# ---------- P: Database ----------
+[[on-window-detected]]
+if.app-id = 'at.eggerapps.Postico' # Postico 2 (Postgres client)
+run = "move-node-to-workspace P"
+
+# ---------- Q: Files ----------
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'   # Finder
+run = "move-node-to-workspace Q"
+
+# ---------- T: Terminal ----------
+[[on-window-detected]]
+if.app-id = 'net.kovidgoyal.kitty' # kitty
+run = "move-node-to-workspace T"
+
+# ---------- W: Passwords ----------
+[[on-window-detected]]
+if.app-id = 'com.1password.1password' # 1Password
+run = "move-node-to-workspace W"
 
 [[on-window-detected]]
-if.app-id = 'com.openai.codex'
-run = "move-node-to-workspace G"
+if.app-id = 'com.bitwarden.desktop' # Bitwarden
+run = "move-node-to-workspace W"
 
+# ---------- Z: Meetings ----------
 [[on-window-detected]]
-if.app-id = 'com.capsulefactory.app'
-run = "move-node-to-workspace G"
+if.app-id = 'us.zoom.xos'        # Zoom
+run = "move-node-to-workspace Z"
+
+# ---------- X: Everything else (fallback) ----------
+# No `if`, so this matches any window. It must stay LAST: rules are checked
+# top to bottom and the first match wins, so anything below this never runs.
+[[on-window-detected]]
+run = "move-node-to-workspace X"
