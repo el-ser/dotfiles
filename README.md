@@ -9,13 +9,15 @@ dotfiles/
 │   └── flake.lock       # pinned versions
 ├── .config/             # app configs, linked into ~/.config with stow
 ├── .zshrc, .zshenv      # linked into ~ with stow
+├── .gitignore           # keeps tmux plugins out of git
 └── .stow-local-ignore   # what stow skips (nix-darwin, README, .git)
 ```
 
 - **Nix packages:** CLI tools and some apps (`environment.systemPackages`)
 - **Homebrew:** apps not in nixpkgs, installed automatically by nix-homebrew
 - **macOS settings:** Dock, Finder, keyboard, shortcuts, sleep
-  Requires an Apple Silicon Mac and an admin account.
+
+Requires an Apple Silicon Mac and an admin account.
 
 ---
 
@@ -99,6 +101,7 @@ These are things Nix doesn't handle:
 - [ ] Set Raycast's hotkey to ⌘Space (Spotlight is moved to ⌥Space)
 - [ ] Give AeroSpace accessibility access in System Settings → Privacy & Security → Accessibility
 - [ ] Install tmux plugins: run `git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm`, start tmux, then press prefix + `I`. The plugins aren't stored in this repo
+- [ ] Create `~/.zshrc.local` for secrets and machine-specific settings (API keys, work aliases): `touch ~/.zshrc.local && chmod 600 ~/.zshrc.local`. `.zshrc` loads it, but it isn't in this repo, so it's never pushed. Never put secrets in `.zshrc` or `.zshenv`
 
 ---
 
