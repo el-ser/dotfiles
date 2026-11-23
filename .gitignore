@@ -1,0 +1,2 @@
+# tmux plugins are installed by tpm, not tracked
+.config/tmux/plugins/

@@ -33,6 +33,12 @@ if [ -d "$HOME/.kube/cluster" ]; then
   export KUBECONFIG=$(find "$HOME/.kube/cluster" -type f -name '*.yaml' | paste -sd ':' -)
 fi
 
+# Google Cloud SDK (installed by hand in ~/Documents, not through nix)
+gcloud_sdk="$HOME/Documents/google-cloud-sdk/google-cloud-sdk"
+if [ -f "$gcloud_sdk/path.zsh.inc" ]; then source "$gcloud_sdk/path.zsh.inc"; fi
+if [ -f "$gcloud_sdk/completion.zsh.inc" ]; then source "$gcloud_sdk/completion.zsh.inc"; fi
+unset gcloud_sdk
+
 # ---------- Aliases ----------
 # git
 alias ga="git add"
@@ -65,3 +71,8 @@ alias kn="kubens"
 alias bwu='export BW_SESSION="$(bw unlock --raw)"'   # unlock Bitwarden for this shell
 alias drb="sudo darwin-rebuild switch --flake ~/dotfiles/nix-darwin#el-ser"
 alias reload-zsh="source ~/.zshrc"
+
+# ---------- Local overrides ----------
+# Secrets and machine-specific settings go in ~/.zshrc.local, which is NOT in
+# this repo. Keep it last so it can override anything above.
+if [ -f "$HOME/.zshrc.local" ]; then source "$HOME/.zshrc.local"; fi

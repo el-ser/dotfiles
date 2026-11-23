@@ -98,6 +98,7 @@ These are things Nix doesn't handle:
 - [ ] Run `gh auth login`
 - [ ] Set Raycast's hotkey to ⌘Space (Spotlight is moved to ⌥Space)
 - [ ] Give AeroSpace accessibility access in System Settings → Privacy & Security → Accessibility
+- [ ] Install tmux plugins: run `git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm`, start tmux, then press prefix + `I`. The plugins aren't stored in this repo
 
 ---
 
