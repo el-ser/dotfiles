@@ -1,0 +1,22 @@
+# Files and folders `stow .` should NOT link into $HOME.
+# One Perl regex per line. A pattern with a leading / matches from the repo
+# root; a pattern without / matches a file or folder name at any depth.
+# This file replaces stow's built-in ignore list, so its defaults are repeated here.
+
+# Git
+\.git
+\.gitignore
+\.gitmodules
+
+# Repo files
+^/README.*
+^/LICENSE.*
+^/\.stow-local-ignore
+
+# nix-darwin is applied with darwin-rebuild, not linked
+^/nix-darwin
+
+# macOS / editor junk
+\.DS_Store
+.+~
+\#.*\#
