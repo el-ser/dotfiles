@@ -236,6 +236,10 @@ run = "move-node-to-workspace D"
 
 # ---------- G: AI ----------
 [[on-window-detected]]
+if.app-id = 'dev.herdr.app'      # Herder App
+run = "move-node-to-workspace G"
+
+[[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop' # Claude
 run = "move-node-to-workspace G"
 
