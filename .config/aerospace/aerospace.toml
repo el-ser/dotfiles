@@ -243,11 +243,6 @@ run = "move-node-to-workspace G"
 if.app-id = 'com.openai.codex'   # Codex
 run = "move-node-to-workspace G"
 
-# ---------- M: Music ----------
-[[on-window-detected]]
-if.app-id = 'com.spotify.client' # Spotify
-run = "move-node-to-workspace M"
-
 # ---------- N: Notes ----------
 [[on-window-detected]]
 if.app-id = 'notion.id'          # Notion
@@ -266,6 +261,11 @@ run = "move-node-to-workspace P"
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'   # Finder
 run = "move-node-to-workspace Q"
+
+# ---------- S: Music ----------
+[[on-window-detected]]
+if.app-id = 'com.spotify.client' # Spotify
+run = "move-node-to-workspace S"
 
 # ---------- T: Terminal ----------
 [[on-window-detected]]
