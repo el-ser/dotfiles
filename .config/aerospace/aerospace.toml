@@ -1,6 +1,16 @@
 # Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
+# See https://nikitabobko.github.io/AeroSpace/guide#config-version
+config-version = 2
+
+# Workspaces that always exist, even when empty. config-version 1 inferred
+# this from the key bindings; version 2 needs it written out.
+persistent-workspaces = [
+    "1", "2", "3", "4", "5", "6", "7", "8", "9",
+    "A", "B", "C", "D", "G", "M", "N", "P", "Q", "S", "T", "W", "X", "Z",
+]
+
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
@@ -291,7 +301,8 @@ if.app-id = 'us.zoom.xos'        # Zoom
 run = "move-node-to-workspace Z"
 
 # ---------- X: Everything else (fallback) ----------
-# No `if`, so this matches any window. It must stay LAST: rules are checked
+# `if = 'true'` matches any window. It must stay LAST: rules are checked
 # top to bottom and the first match wins, so anything below this never runs.
 [[on-window-detected]]
+if = 'true'
 run = "move-node-to-workspace X"
