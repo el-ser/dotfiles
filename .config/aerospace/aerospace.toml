@@ -7,8 +7,29 @@ config-version = 2
 # Workspaces that always exist, even when empty. config-version 1 inferred
 # this from the key bindings; version 2 needs it written out.
 persistent-workspaces = [
-    "1", "2", "3", "4", "5", "6", "7", "8", "9",
-    "A", "B", "C", "D", "G", "M", "N", "P", "Q", "S", "T", "W", "X", "Z",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "A",
+  "B",
+  "C",
+  "D",
+  "G",
+  "M",
+  "N",
+  "P",
+  "Q",
+  "S",
+  "T",
+  "W",
+  "X",
+  "Z",
 ]
 
 # You can use it to add commands that run after login to macOS user session.
@@ -205,26 +226,22 @@ alt-shift-l = ['join-with right', 'mode main']
 # Find an app's id with: aerospace list-apps
 # ============================================================
 
-# ---------- B: Browsers ----------
+# ---------- A: Browsers ----------
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser' # Arc
-run = "move-node-to-workspace B"
+run = "move-node-to-workspace A"
 
 [[on-window-detected]]
 if.app-id = 'com.vivaldi.Vivaldi' # Vivaldi
-run = "move-node-to-workspace B"
+run = "move-node-to-workspace A"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'   # Safari
-run = "move-node-to-workspace B"
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Safari'   # Brave
-run = "move-node-to-workspace B"
+run = "move-node-to-workspace A"
 
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser'  # Brave
-run = "move-node-to-workspace B"
+run = "move-node-to-workspace A"
 
 # ---------- C: Chat ----------
 [[on-window-detected]]
