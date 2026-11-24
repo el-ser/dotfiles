@@ -104,6 +104,7 @@
               "discord"
               "postico"
               "stats"
+              "macshot"
             ];
             onActivation.cleanup = "zap";
             onActivation.upgrade = false;
@@ -204,7 +205,10 @@
           nix.package = pkgs.lix;
           nix.settings = {
             experimental-features = "nix-command flakes";
-            trusted-users = [ "root" username ];
+            trusted-users = [
+              "root"
+              username
+            ];
           };
         };
     in
